@@ -3,7 +3,9 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
 mongoose.connect(process.env.MONGODB_URI); // online
+
 app.use(express.json());
+
 const cloudinary = require("cloudinary").v2;
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,

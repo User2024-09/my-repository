@@ -4,9 +4,7 @@ const router = express.Router();
 const isAuthenticated = require("../middleware/isAuthenticated");
 const fileUpload = require("express-fileupload");
 const cloudinary = require("cloudinary").v2;
-
 const convertToBase64 = require("../utils/convertToBase64");
-
 //!ROUTE ADD NEW OFFER
 router.post(
   "/offer/publish",
@@ -39,7 +37,7 @@ router.post(
         ],
         owner: req.user,
       });
-      console.log("offer", offer);
+      // console.log("req.files", req.files);
       const road = "vinted/offer/" + offer._id;
       const pictureToUpload = await cloudinary.uploader.upload(
         convertToBase64(req.files.picture),
